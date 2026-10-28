@@ -1,0 +1,981 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100817">
+<title>Our Little Universe ♡</title>
+
+<style>
+:root {
+  --pink: #ff91c8;
+  --soft: #ffd5e9;
+  --purple: #bba2ff;
+  --bg: #100817;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: #fff5fb;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button, input { font: inherit; }
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#universe {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.aurora {
+  position: fixed;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: .15;
+  pointer-events: none;
+  z-index: 0;
+  animation: aurora 12s ease-in-out infinite alternate;
+}
+
+.a1 {
+  background: #e52d91;
+  top: -20%;
+  left: -20%;
+}
+
+.a2 {
+  background: #7653ff;
+  bottom: -20%;
+  right: -20%;
+  animation-delay: -6s;
+}
+
+@keyframes aurora {
+  to { transform: translate(15vw, 10vh) scale(1.25); }
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.scene {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 75px 22px;
+  text-align: center;
+  position: relative;
+  isolation: isolate;
+}
+
+.eyebrow {
+  color: var(--pink);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 10px;
+  margin-bottom: 24px;
+}
+
+h1, h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(42px, 8vw, 85px);
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+h1 em, h2 em {
+  color: var(--pink);
+  font-weight: 400;
+}
+
+.description {
+  max-width: 440px;
+  margin: 23px auto;
+  color: #c8b7cf;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.glass {
+  background: linear-gradient(
+    135deg,
+    #ffffff0d,
+    #ffffff04
+  );
+  border: 1px solid #ffffff20;
+  box-shadow: 0 20px 80px #0003;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ffb4da70;
+  border-radius: 50px;
+  padding: 14px 24px;
+  color: white;
+  background: #ffffff0a;
+  transition: transform .3s, background .3s, box-shadow .3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: #ff91c82a;
+  box-shadow: 0 0 35px #ff70b733;
+}
+
+.btn.primary {
+  background: linear-gradient(110deg, #ff80bb, #bd91ff);
+  color: #261128;
+  border: 0;
+  font-weight: 700;
+}
+
+.btn:active { transform: scale(.97); }
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+#intro {
+  overflow: hidden;
+}
+
+.orbit-stage {
+  width: min(76vw, 330px);
+  height: min(76vw, 330px);
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-bottom: 30px;
+  perspective: 800px;
+}
+
+.orbit {
+  position: absolute;
+  width: 100%;
+  height: 43%;
+  border: 1px solid #ffa9d766;
+  border-radius: 50%;
+  transform: rotate(-28deg);
+  animation: orbit 8s linear infinite;
+}
+
+.orbit.o2 {
+  width: 115%;
+  height: 60%;
+  transform: rotate(48deg);
+  border-color: #c1a2ff55;
+  animation-direction: reverse;
+  animation-duration: 12s;
+}
+
+.orbit.o3 {
+  width: 95%;
+  height: 90%;
+  transform: rotate(65deg);
+  border-color: #fff4ff20;
+  animation-duration: 19s;
+}
+
+@keyframes orbit {
+  to { rotate: 360deg; }
+}
+
+.heart-core {
+  width: 105px;
+  height: 105px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  animation: heartBeat 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 22px #ff4eaa80);
+}
+
+.heart-core svg {
+  width: 100%;
+  overflow: visible;
+}
+
+.heart-core::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border: 1px solid #ffb1d955;
+  border-radius: 50%;
+  animation: ring 3s ease-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  10% { transform: scale(1.1); }
+  20% { transform: scale(1); }
+  30% { transform: scale(1.06); }
+}
+
+@keyframes ring {
+  from { transform: scale(.7); opacity: .8; }
+  to { transform: scale(1.7); opacity: 0; }
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 25px;
+  color: #bda5c8;
+  font-size: 10px;
+  letter-spacing: 3px;
+  animation: bob 2s infinite;
+}
+
+@keyframes bob {
+  50% { transform: translateY(7px); }
+}
+
+.section-inner {
+  width: 100%;
+  max-width: 680px;
+}
+
+.card {
+  padding: clamp(25px, 5vw, 45px);
+  border-radius: 26px;
+  margin: 30px auto;
+  width: 100%;
+  position: relative;
+}
+
+.card h2 {
+  font-size: clamp(29px, 6vw, 43px);
+  margin-bottom: 22px;
+}
+
+.letter {
+  text-align: left;
+  color: #f0dce9;
+  line-height: 2;
+  font-size: 14px;
+  min-height: 145px;
+  white-space: pre-wrap;
+}
+
+.letter::after {
+  content: "▋";
+  color: var(--pink);
+  animation: blink .7s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.signature {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: var(--pink);
+  margin-top: 25px;
+  text-align: right;
+  font-size: 19px;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.memory {
+  border: 1px solid #ffffff18;
+  border-radius: 18px;
+  padding: 22px 10px;
+  background: #ffffff07;
+  animation: floatCard 5s ease-in-out infinite;
+}
+
+.memory:nth-child(2) { animation-delay: -1.6s; }
+.memory:nth-child(3) { animation-delay: -3.2s; }
+
+@keyframes floatCard {
+  50% { transform: translateY(-8px); }
+}
+
+.memory .emoji {
+  font-size: 29px;
+  margin-bottom: 12px;
+}
+
+.memory h3 {
+  font-size: 12px;
+  margin-bottom: 7px;
+  color: #ffc3df;
+}
+
+.memory p {
+  font-size: 10px;
+  line-height: 1.7;
+  color: #bcaec6;
+}
+
+.proposal-heart {
+  font-size: 75px;
+  filter: drop-shadow(0 0 25px #ff76b7);
+  animation: heartBeat 1.5s infinite;
+  margin-bottom: 25px;
+}
+
+#answer {
+  color: #ffd5e9;
+  margin-top: 26px;
+  line-height: 1.9;
+  font-size: 15px;
+}
+
+#answer:empty { display: none; }
+
+.final-star {
+  font-size: 60px;
+  margin-bottom: 24px;
+  animation: heartBeat 2s infinite;
+}
+
+.name-input {
+  width: min(100%, 300px);
+  padding: 14px 18px;
+  margin-top: 18px;
+  border-radius: 30px;
+  background: #ffffff0b;
+  border: 1px solid #ffadd955;
+  color: white;
+  outline: none;
+  text-align: center;
+}
+
+.name-input::placeholder { color: #bfa5c4; }
+
+.name-input:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 25px #ff8fc522;
+}
+
+footer {
+  padding: 30px 15px 45px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #937b9c;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#musicBtn {
+  position: fixed;
+  right: 17px;
+  top: 17px;
+  z-index: 10;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: #ffffff0b;
+  color: white;
+  border: 1px solid #ffffff35;
+}
+
+#musicBtn.playing {
+  animation: spin 5s linear infinite;
+  border-color: var(--pink);
+}
+
+@keyframes spin { to { rotate: 360deg; } }
+
+#toast {
+  position: fixed;
+  z-index: 20;
+  bottom: 22px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  background: #32172f;
+  border: 1px solid #ff91c855;
+  padding: 13px 20px;
+  border-radius: 30px;
+  color: white;
+  font-size: 12px;
+  transition: .4s;
+  pointer-events: none;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media(max-width: 500px) {
+  .scene { padding: 75px 18px; }
+  .memory-grid { gap: 7px; }
+  .memory { padding: 18px 6px; }
+  .memory p { font-size: 9px; }
+  .orbit-stage { width: 260px; height: 260px; }
+  .heart-core { width: 85px; height: 85px; }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="universe"></canvas>
+<div class="aurora a1"></div>
+<div class="aurora a2"></div>
+
+<button id="musicBtn" aria-label="Toggle romantic ambient music"
+  title="Toggle ambient music" onclick="toggleMusic()">♫</button>
+
+<main>
+
+<!-- SCENE 1: THE UNIVERSE -->
+<section class="scene" id="intro">
+
+  <div class="eyebrow">✦ a little universe, just for you ✦</div>
+
+  <div class="orbit-stage">
+    <div class="orbit"></div>
+    <div class="orbit o2"></div>
+    <div class="orbit o3"></div>
+
+    <div class="heart-core">
+      <svg viewBox="0 0 100 100" aria-label="Glowing heart">
+        <defs>
+          <linearGradient id="heartGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffe1f1"/>
+            <stop offset="50%" stop-color="#ff79bb"/>
+            <stop offset="100%" stop-color="#bd8cff"/>
+          </linearGradient>
+        </defs>
+        <path d="M50 88 C40 76 8 55 8 32 C8 8 38 5 50 26 C62 5 92 8 92 32 C92 55 60 76 50 88Z"
+          fill="url(#heartGradient)"/>
+      </svg>
+    </div>
+  </div>
+
+  <h1>Somewhere in the universe,<br>
+    <em>I found you.</em>
+  </h1>
+
+  <p class="description">
+    Out of billions of people, countless stars and endless galaxies...
+    there is one person who makes my little world feel different.
+  </p>
+
+  <div class="button-row">
+    <button class="btn primary" onclick="beginStory()">
+      ENTER OUR UNIVERSE ✦
+    </button>
+  </div>
+
+  <div class="scroll-cue">MADE OF LITTLE MOMENTS · ↓</div>
+</section>
+
+<!-- SCENE 2: THE LETTER -->
+<section class="scene" id="letterScene">
+  <div class="section-inner reveal">
+
+    <div class="eyebrow">✉ a message from my heart</div>
+
+    <div class="card glass">
+      <h2>Dear <em id="herNameTitle">My Favourite Person</em>,</h2>
+
+      <div class="letter" id="letterText"></div>
+
+      <div class="signature" id="signature">— someone who cares about you ♡</div>
+    </div>
+
+    <div class="button-row">
+      <button class="btn primary" onclick="showMemories()">
+        THERE'S MORE... ♡
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCENE 3: LITTLE MOMENTS -->
+<section class="scene" id="memoryScene">
+  <div class="section-inner reveal">
+
+    <div class="eyebrow">✧ the little things matter ✧</div>
+
+    <h2 style="font-size:clamp(35px,7vw,58px)">
+      My favourite kind<br><em>of magic.</em>
+    </h2>
+
+    <p class="description">
+      Sometimes love isn't one big moment.
+      It's a hundred little moments that somehow mean everything.
+    </p>
+
+    <div class="memory-grid">
+      <div class="memory">
+        <div class="emoji">💌</div>
+        <h3>Your Messages</h3>
+        <p>Little notifications that make me smile.</p>
+      </div>
+
+      <div class="memory">
+        <div class="emoji">🌙</div>
+        <h3>Our Talks</h3>
+        <p>Conversations I wish could last a little longer.</p>
+      </div>
+
+      <div class="memory">
+        <div class="emoji">🫶</div>
+        <h3>Your Presence</h3>
+        <p>Being myself around someone special.</p>
+      </div>
+    </div>
+
+    <div class="button-row">
+      <button class="btn primary" onclick="showProposal()">
+        ONE LITTLE QUESTION 💗
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCENE 4: THE QUESTION -->
+<section class="scene" id="proposalScene">
+  <div class="section-inner reveal">
+
+    <div class="proposal-heart">💗</div>
+
+    <div class="eyebrow">✧ just you and me ✧</div>
+
+    <h2 style="font-size:clamp(36px,7vw,60px)">
+      Can I keep choosing<br><em>you?</em>
+    </h2>
+
+    <p class="description">
+      Not just on the perfect days.
+      On ordinary days, silly days, difficult days...
+      I want us to keep making beautiful memories together.
+    </p>
+
+    <div class="card glass">
+      <p style="line-height:2;color:#f4d8e8">
+        Un kooda irukkura ovvoru chinna moment-um
+        special-ah irukkanum nu aasai.
+        Namma rendu perum serndhu neraya memories
+        create pannanum. No pressure, just love. ❤️
+      </p>
+
+      <div class="button-row">
+        <button class="btn primary" onclick="answerYes()">
+          YES, LET'S MAKE MEMORIES 💞
+        </button>
+
+        <button class="btn" onclick="answerLater()">
+          LET ME THINK 🌷
+        </button>
+      </div>
+
+      <div id="answer" aria-live="polite"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCENE 5: FINAL SURPRISE -->
+<section class="scene" id="finalScene">
+  <div class="section-inner reveal">
+
+    <div class="final-star">🌌</div>
+
+    <div class="eyebrow">✦ a new page begins ✦</div>
+
+    <h2 style="font-size:clamp(37px,7vw,62px)">
+      You make my world<br><em>feel like home.</em>
+    </h2>
+
+    <p class="description" id="finalMessage">
+      No grand promises. Just a genuine wish to share more smiles,
+      more memories and more beautiful ordinary days with you.
+    </p>
+
+    <div class="card glass">
+      <div style="font-size:35px;margin-bottom:16px">💌</div>
+
+      <h2 style="font-size:30px">One last little thing...</h2>
+
+      <p class="description">
+        If this made you smile even a little,
+        that already makes me happy.
+      </p>
+
+      <input class="name-input" id="wishInput"
+        placeholder="Write me a little wish ♡"
+        maxlength="180"/>
+
+      <div class="button-row">
+        <button class="btn primary" onclick="saveWish()">
+          SEND MY WISH ✨
+        </button>
+
+        <button class="btn" onclick="celebrate()">
+          MORE MAGIC ✦
+        </button>
+      </div>
+
+      <p id="wishResult" style="margin-top:20px;color:#ffc5df;line-height:1.8"></p>
+    </div>
+
+    <p class="signature" style="text-align:center">
+      In a universe of stars, you are my favourite. ♡
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  A LITTLE UNIVERSE CREATED WITH LOVE ♡
+</footer>
+
+<div id="toast">A little magic for you ✨</div>
+
+<script>
+// PERSONALISE THESE TWO VALUES
+const HER_NAME = "My Favourite Person";
+const YOUR_NAME = "Someone who loves you";
+
+// BACKGROUND: STARS, SHOOTING STARS & SPARKLES
+const canvas = document.getElementById("universe");
+const ctx = canvas.getContext("2d");
+
+let W, H, stars = [], shootingStars = [], particles = [];
+let mouse = { x: -1000, y: -1000 };
+
+function resize() {
+  W = canvas.width = innerWidth * Math.min(devicePixelRatio || 1, 2);
+  H = canvas.height = innerHeight * Math.min(devicePixelRatio || 1, 2);
+  canvas.style.width = innerWidth + "px";
+  canvas.style.height = innerHeight + "px";
+  ctx.setTransform(
+    Math.min(devicePixelRatio || 1, 2), 0, 0,
+    Math.min(devicePixelRatio || 1, 2), 0, 0
+  );
+
+  stars = Array.from({length: Math.min(180, Math.floor(innerWidth / 5))}, () => ({
+    x: Math.random() * innerWidth,
+    y: Math.random() * innerHeight,
+    r: Math.random() * 1.4 + .2,
+    a: Math.random(),
+    speed: Math.random() * .015 + .003
+  }));
+}
+
+addEventListener("resize", resize);
+resize();
+
+addEventListener("pointermove", e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+
+  if (Math.random() > .7) {
+    particles.push({
+      x: e.clientX, y: e.clientY,
+      vx: (Math.random() - .5) * 1.2,
+      vy: (Math.random() - .5) * 1.2,
+      life: 1, size: Math.random() * 2 + 1,
+      color: Math.random() > .5 ? "#ff9acb" : "#c8a5ff"
+    });
+  }
+});
+
+function drawUniverse() {
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+  stars.forEach(s => {
+    s.a += s.speed;
+    const opacity = .3 + (Math.sin(s.a) + 1) * .3;
+
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,225,249,${opacity})`;
+    ctx.fill();
+  });
+
+  if (Math.random() < .008) {
+    shootingStars.push({
+      x: Math.random() * innerWidth,
+      y: Math.random() * innerHeight * .5,
+      vx: 5 + Math.random() * 5,
+      vy: 2 + Math.random() * 3,
+      life: 1
+    });
+  }
+
+  shootingStars.forEach(s => {
+    ctx.beginPath();
+    ctx.moveTo(s.x, s.y);
+    ctx.lineTo(s.x - s.vx * 5, s.y - s.vy * 5);
+    ctx.strokeStyle = `rgba(255,190,228,${s.life})`;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    s.x += s.vx;
+    s.y += s.vy;
+    s.life -= .012;
+  });
+
+  shootingStars = shootingStars.filter(s => s.life > 0);
+
+  particles.forEach(p => {
+    ctx.globalAlpha = Math.max(0, p.life);
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+
+    p.x += p.vx;
+    p.y += p.vy;
+    p.life -= .018;
+  });
+
+  ctx.globalAlpha = 1;
+  particles = particles.filter(p => p.life > 0);
+
+  requestAnimationFrame(drawUniverse);
+}
+
+drawUniverse();
+
+// SET PERSONAL NAMES
+document.getElementById("herNameTitle").textContent = HER_NAME;
+document.getElementById("signature").textContent = "— " + YOUR_NAME + " ♡";
+
+// TYPEWRITER LETTER
+const letter = `Hey ${HER_NAME}... ❤️
+
+I don't know if I always say the right things, but there's something I want you to know.
+
+You make ordinary moments feel a little more beautiful. Sometimes it's just a message, a silly conversation, or the way you make me smile without even trying.
+
+I don't expect every day to be perfect. I just hope we can be honest with each other, support each other, laugh at the little things, and make memories we will look back on with a smile.
+
+Unakku happy-ah irukkanum. Un dreams achieve pannanum. And if I can be one small reason for your smile, that would mean a lot to me.
+
+This little universe isn't as big as my feelings, but I made it especially for you. 🌷`;
+
+let typingStarted = false;
+let typeIndex = 0;
+
+function typeLetter() {
+  if (typeIndex < letter.length) {
+    document.getElementById("letterText").textContent += letter[typeIndex++];
+    setTimeout(typeLetter, letter[typeIndex - 1] === "\n" ? 220 : 27);
+  } else {
+    document.getElementById("letterText").style.borderRight = "none";
+  }
+}
+
+// SCROLL REVEALS
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+
+      if (entry.target.closest("#letterScene") && !typingStarted) {
+        typingStarted = true;
+        typeLetter();
+      }
+    }
+  });
+}, { threshold: .15 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+function goTo(id) {
+  document.getElementById(id).scrollIntoView({
+    behavior: "smooth", block: "center"
+  });
+}
+
+function beginStory() {
+  goTo("letterScene");
+  burst();
+}
+
+function showMemories() {
+  goTo("memoryScene");
+  burst();
+}
+
+function showProposal() {
+  goTo("proposalScene");
+  burst();
+}
+
+// HEART & CONFETTI BURSTS
+function burst() {
+  const colors = ["#ff8fc8", "#ffd4e9", "#c0a3ff", "#fff2fa"];
+
+  for (let i = 0; i < 65; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const velocity = 1 + Math.random() * 5;
+
+    particles.push({
+      x: innerWidth / 2,
+      y: innerHeight / 2,
+      vx: Math.cos(angle) * velocity,
+      vy: Math.sin(angle) * velocity,
+      life: .8 + Math.random() * .6,
+      size: 1 + Math.random() * 3,
+      color: colors[Math.floor(Math.random() * colors.length)]
+    });
+  }
+
+  showToast("A little magic, just for you ✨");
+}
+
+function answerYes() {
+  document.getElementById("answer").textContent =
+    "Then here's to more little moments, more laughter and a story we create together. 💗";
+
+  burst();
+  setTimeout(() => goTo("finalScene"), 1600);
+}
+
+function answerLater() {
+  document.getElementById("answer").textContent =
+    "That's okay, take your time. Your feelings matter, always. 🌷";
+  burst();
+}
+
+function celebrate() {
+  burst();
+  for (let i = 0; i < 3; i++) {
+    setTimeout(burst, (i + 1) * 300);
+  }
+}
+
+let toastTimer;
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2400);
+}
+
+// PERSONAL WISH
+function saveWish() {
+  const value = document.getElementById("wishInput").value.trim();
+  const result = document.getElementById("wishResult");
+
+  if (!value) {
+    result.textContent = "Write a little wish first, please ♡";
+    return;
+  }
+
+  result.textContent = "Your wish: “" + value +
+    "” 💌 Thank you for sharing this moment with me.";
+
+  celebrate();
+}
+
+// OPTIONAL ORIGINAL AMBIENT TONE — NO EXTERNAL MUSIC
+let audioContext = null;
+let musicNodes = [];
+let musicPlaying = false;
+
+function toggleMusic() {
+  const btn = document.getElementById("musicBtn");
+
+  if (musicPlaying) {
+    musicNodes.forEach(node => {
+      try { node.stop(); } catch (e) {}
+    });
+    musicNodes = [];
+    musicPlaying = false;
+    btn.classList.remove("playing");
+    btn.textContent = "♫";
+    showToast("Ambient sound paused");
+    return;
+  }
+
+  try {
+    audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+    audioContext.resume();
+
+    // Gentle, original ambient tones rather than a copyrighted song.
+    [261.63, 329.63, 392].forEach((frequency, i) => {
+      const osc = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+
+      osc.type = "sine";
+      osc.frequency.value = frequency;
+      gain.gain.value = .018;
+
+      osc.connect(gain);
+      gain.connect(audioContext.destination);
+      osc.start();
+
+      musicNodes.push(osc);
+      musicNodes.push(gain);
+    });
+
+    musicPlaying = true;
+    btn.classList.add("playing");
+    btn.textContent = "♪";
+    showToast("A little ambient melody ♡");
+  } catch (e) {
+    showToast("Sound is not available in this browser");
+  }
+}
+</script>
+
+</body>
+</html>
